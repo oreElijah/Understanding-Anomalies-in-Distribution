@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>{{name}}Distribution </title>
+</head>
+<body>
+  <p><a href="{{url_for('home')}}"><-Back home</a></p>
+  <h1>{{name}} Distribution</h1>
+  {%if name=="Gamma"%}
+    <p>Continuous positive distribution often used for waiting times and reliability (shape k, scale θ).</p>
+  {%elif name=="Exponetial"%}
+    <p>Models time between independent events at a constant average rate. Right-skewed, memoryless.</p>
+  {%elif name=="Binomial"%}
+    <p>Number of successes in n independent trials with success probability p. Discrete, bounded.</p>
+  {%elif name=="Lognormal"%}
+    <p>If log(X) is normal, X is lognormal. Positive-only and right-skewed (multiplicative processes).</p>
+  {%elif name=="Normal"%}
+    <p>Bell-shaped, symmetric distribution defined by mean and standard deviation. Many natural phenomena approximate normality.</p>
+  {%elif name=="Poisson"%}
+    <p>Discrete distribution for counts of events in a fixed interval, given an average rate (λ).</p>
+  {%elif name=="Uniform"%}
+    <p>All values in an interval are equally likely. Flat probability across the range.</p>
+  {%else%}
+  <h1 style="color: red;">Smth is wrong</h1>
+  {%endif%}
+  <form method="POST">
+
+    <label for="distribution">Choose a dataset:</label>
+    <select name="datasetNo">
+      <option value="1">Dataset 1</option>
+      <option value="2">Dataset 2</option>
+      <option value="3">Dataset 3</option>
+      <option value="4">Dataset 4</option>
+      <option value="5">Dataset 5</option>
+    </select>
+    <button type="submit">Generate</button>
+  </form>
+
+  {% if chart_html %}
+    <div>{{ chart_html|safe }}</div>
+  {% endif %}
+</body>
+</html>

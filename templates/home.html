@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>Understanding Anomaly in Distributions</title>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Understanding Anomaly in Distributions</h1>
+    <p>This mini-site demonstrates <em>seven common probability distributions</em> and how to spot anomalies (outliers). We generate 5 datasets for each distribution (≥500 points each). Outliers are highlighted in <strong>red</strong> using the IQR rule; normal points are <strong>blue</strong>.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Normal</h3>
+        <p>Bell-shaped, symmetric distribution defined by mean and standard deviation. Many natural phenomena approximate normality.</p>
+        <p><a href="{{url_for('normal')}}">Open Normal →</a></p>
+      </div>
+      <div class="card">
+        <h3>Uniform</h3>
+        <p>All values in an interval are equally likely. Flat probability across the range.</p>
+        <p><a href="{{url_for('uniform')}}">Open Uniform →</a></p>
+      </div>
+      <div class="card">
+        <h3>Exponential</h3>
+        <p>Models time between independent events at a constant average rate. Right-skewed, memoryless.</p>
+        <p><a href="{{url_for('exponetial')}}">Open Exponential →</a></p>
+      </div>
+      <div class="card">
+        <h3>Poisson</h3>
+        <p>Discrete distribution for counts of events in a fixed interval, given an average rate (λ).</p>
+        <p><a href="{{url_for('poisson')}}">Open Poisson →</a></p>
+      </div>
+      <div class="card">
+        <h3>Binomial</h3>
+        <p>Number of successes in n independent trials with success probability p. Discrete, bounded.</p>
+        <p><a href="{{url_for('binomial')}}">Open Binomial →</a></p>
+      </div>
+      <div class="card">
+        <h3>Gamma</h3>
+        <p>Continuous positive distribution often used for waiting times and reliability (shape k, scale θ).</p>
+        <p><a href="{{url_for('gamma')}}">Open Gamma →</a></p>
+      </div>
+      <div class="card">
+        <h3>Lognormal</h3>
+        <p>If log(X) is normal, X is lognormal. Positive-only and right-skewed (multiplicative processes).</p>
+        <p><a href="{{url_for('lognormal')}}">Open Lognormal →</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
